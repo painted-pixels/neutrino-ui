@@ -1,0 +1,18 @@
+import * as React from "react";
+import { StandardProps } from "..";
+import { FormGroupProps, FormGroupClassKey } from "../FormGroup";
+
+export interface RadioGroupProps
+  extends StandardProps<FormGroupProps, RadioGroupClassKey, "onChange"> {
+  defaultValue?: FormGroupProps["defaultValue"];
+  name?: string;
+  onChange?: (
+    event: React.ChangeEvent<HTMLInputElement>,
+    value: string
+  ) => void;
+  value?: any;
+}
+
+export type RadioGroupClassKey = FormGroupClassKey;
+
+export default function RadioGroup(props: RadioGroupProps): JSX.Element;

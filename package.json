@@ -1,15 +1,26 @@
 {
-  "name": "css-effects",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "lerna run build --stream",
+    "build:watch": "lerna run build:watch --stream",
+    "bootstrap": "lerna exec yarn",
+    "linker": "lerna link",
+    "test": "lerna run test --stream",
+    "publish": "lerna publish",
+    "dev": "yarn build && lerna exec yarn dev --scope kitchen-sink"
   },
-  "dependencies": {
-    "next": "9.3.6",
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
-  }
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "lerna": "^3.20.2"
+  },
+  "workspaces": [
+    "kitchen-sink",
+    "packages/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/painted-pixels/neutrino-ui.git"
+  },
+  "name": "neutrino-ui"
 }

@@ -1,0 +1,37 @@
+{
+  "name": "@neutrino-ui/core",
+  "version": "0.1.0",
+  "description": "React Component Library with Neumorphic Design",
+  "main": "dist",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc -w",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/painted-pixels/neutrino-ui.git"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "neutrino-ui",
+    "neumorphism"
+  ],
+  "author": "Painted Pixels",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/painted-pixels/neutrino-ui/issues"
+  },
+  "homepage": "https://github.com/painted-pixels/neutrino-ui/tree/master/packages/neutrino-ui",
+  "devDependencies": {
+    "@types/react": "^16.9.35",
+    "@types/styled-components": "^5.1.0",
+    "jest": "^26.0.1",
+    "styled-components": "^5.1.0",
+    "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "react": ">=16.0.0"
+  }
+}
