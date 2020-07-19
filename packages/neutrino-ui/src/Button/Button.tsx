@@ -1,39 +1,58 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-export type ButtonStyle =
-  | "Primary"
-  | "Secondary"
-  | "Success"
-  | "Warning"
-  | "Error"
-  | "Link";
+export type ButtonType =
+  | "primary"
+  | "secondary"
+  | "success"
+  | "warning"
+  | "danger"
+  | "link";
 
-export type ButtonShape = "Normal" | "Round";
+export type ButtonShape = "normal" | "round";
 
 export interface ButtonProps {
-  children?: React.ReactNode | string;
-  style?: ButtonStyle;
-  shape?: ButtonShape;
+  children?: React.ReactChildren | string;
   className?: string;
-  width?: number;
+  disabled?: boolean;
   height?: number;
-  toggled?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  shape?: ButtonShape;
+  type?: ButtonType;
+  toggled?: boolean;
+  width?: number;
 }
 
-const ButtonComponent = styled.button`
+const ButtonColors: { [key in ButtonType]: string } = {
+  primary: "blue",
+  secondary: "gray",
+  success: "green",
+  warning: "yellow",
+  danger: "red",
+  link: "transparent",
+};
+
+interface SafeButtonProps {
+  disabled: boolean;
+  height?: number;
+  shape?: ButtonShape;
+  buttonType: ButtonType;
+  toggled: boolean;
+  width?: number;
+}
+
+const ButtonComponent = styled.button<SafeButtonProps>`
     width: ${(props) =>
       `${props.width}px` ||
-      (props.shape === "Normal" ? "min-content" : "100px")};
+      (props.shape === "normal" ? "min-content" : "100px")};
     height: ${(props) =>
       `${props.height}px` ||
-      (props.shape === "Normal" ? "min-content" : "100px")};
-    border-radius: ${(props) => (props.shape === "Normal" ? "0.5rem" : "50%")};
+      (props.shape === "normal" ? "min-content" : "100px")};
+    border-radius: ${(props) => (props.shape === "normal" ? "0.5rem" : "50%")};
     cursor: pointer;
     position:relative;
     border: 0;
-    background-color: transparent;
+    background-color: ${(props) => ButtonColors[props.buttonType]};
     outline: none;
 
     &::before {
@@ -42,7 +61,7 @@ const ButtonComponent = styled.button`
       7px 7px 15px rgba(70, 70, 70, 0.12);
       opacity: 1;
       border-radius: ${(props) =>
-        props.shape === "Normal" ? "0.5rem" : "50%"};
+        props.shape === "normal" ? "0.5rem" : "50%"};
       transition: 0.1s;
       position: absolute;
       left: 0;
@@ -58,7 +77,7 @@ const ButtonComponent = styled.button`
         opacity: 0;
       transition: 0.2s;
       border-radius: ${(props) =>
-        props.shape === "Normal" ? "0.5rem" : "50%"};
+        props.shape === "normal" ? "0.5rem" : "50%"};
       transition: 0.1s;
       position: absolute;
       left: 0;
@@ -75,43 +94,53 @@ const ButtonComponent = styled.button`
       }
     }
 
-    ${(props: ButtonProps) =>
-      props.shape === "Normal" &&
+    ${(props: SafeButtonProps) =>
+      props.shape === "normal" &&
       css`
         border-radius: 0.5rem;
         padding: 1rem 1.5rem;
         white-space: nowrap;
       `}
 
-    ${(props: ButtonProps) =>
-      props.shape === "Round" &&
+    ${(props: SafeButtonProps) =>
+      props.shape === "round" &&
       css`
         border-radius: 50%;
       `}
 
-    ${(props: ButtonProps) =>
-      props.style === "Primary" &&
+    ${(props: SafeButtonProps) =>
+      props.buttonType === "primary" &&
       css`
         background-color: #ececec;
       `}
   `;
+ButtonComponent.displayName = "NuiButton";
 
-export const Button: React.FC<ButtonProps> = React.forwardRef<
-  HTMLButtonElement,
-  ButtonProps
->(
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { style = "Primary", shape = "Normal", onClick = () => {}, ...rest },
+    {
+      children,
+      type = "primary",
+      disabled = false,
+      shape = "normal",
+      onClick = () => {},
+      toggled = false,
+      ...rest
+    },
     ref
   ): JSX.Element => {
     return (
       <ButtonComponent
         {...rest}
-        style={style}
+        buttonType={type}
+        disabled={disabled}
         shape={shape}
         onClick={onClick}
+        toggled={toggled}
         ref={ref}
-      />
+      >
+        {children}
+      </ButtonComponent>
     );
   }
 );
