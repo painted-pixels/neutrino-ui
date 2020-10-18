@@ -9,15 +9,17 @@ export type ButtonType =
   | "danger"
   | "link";
 
+export type ButtonSize = 'tiny' | 'small' | 'medium' | 'large'
 export type ButtonShape = "normal" | "round";
 
 export interface ButtonProps {
-  children?: React.ReactChildren | string;
+  children?: React.ReactNode;
   className?: string;
   disabled?: boolean;
   height?: number;
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   shape?: ButtonShape;
+  size?: ButtonSize;
   type?: ButtonType;
   toggled?: boolean;
   width?: number;
@@ -33,17 +35,18 @@ const ButtonColors: { [key in ButtonType]: string } = {
 };
 
 interface SafeButtonProps {
+  buttonType: ButtonType;
   disabled: boolean;
   height?: number;
   shape?: ButtonShape;
-  buttonType: ButtonType;
+  size: ButtonSize;
   toggled: boolean;
   width?: number;
 }
 
 const ButtonComponent = styled.button<SafeButtonProps>`
-    width: ${(props) =>
-      `${props.width}px` ||
+    width: ${(props) => props.width ? 
+      `${props.width}px` :
       (props.shape === "normal" ? "min-content" : "100px")};
     height: ${(props) =>
       `${props.height}px` ||
@@ -123,6 +126,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       type = "primary",
       disabled = false,
       shape = "normal",
+      size = "medium",
       onClick = () => {},
       toggled = false,
       ...rest
@@ -135,6 +139,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         buttonType={type}
         disabled={disabled}
         shape={shape}
+        size={size}
         onClick={onClick}
         toggled={toggled}
         ref={ref}
@@ -145,5 +150,5 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 
-/* export default withStyles(styles, { name: "NeutrinoButton" })(Button); */
+/* export default withStyles(styles, { name: "Ne utrinoButton" })(Button); */
 export default Button;

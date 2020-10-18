@@ -1,7 +1,6 @@
 {
   "name": "@neutrino-ui/types",
   "version": "0.1.0",
-  "private": false,
   "author": "Painted Pixels",
   "description": "Neutrino UI Utility Types",
   "types": "./index.d.ts",
