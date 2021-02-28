@@ -20,8 +20,12 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
-    "@types/react": "^17.0.1",
+    "@storybook/addon-actions": "^6.2.0-alpha.29",
+    "@storybook/addon-essentials": "^6.2.0-alpha.29",
+    "@storybook/addon-links": "^6.2.0-alpha.29",
+    "@storybook/react": "^6.2.0-alpha.29",
+    "@types/react": "^17.0.2",
     "@types/styled-components": "^5.1.7",
-    "typescript": "^4.1.3"
+    "typescript": "^4.1.5"
   }
 }
