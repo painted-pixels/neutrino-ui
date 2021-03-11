@@ -2,7 +2,8 @@
   "name": "@neutrino-ui/button",
   "version": "0.0.1",
   "description": "Neutrino UI Button component",
-  "main": "src/index.tsx",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc -p ./tsconfig.json",
     "test": "jest"
@@ -13,7 +14,18 @@
     "Neutrino",
     "UI"
   ],
-  "author": "Dustin Savery",
+  "author": {
+    "name": "Painted Pixels",
+    "email": "hello@paintedpixels.design",
+    "url": "https://www.neutrino-ui.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neutrino-ui/neutrino-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/neutrino-ui/neutrino-ui/issues"
+  },
   "license": "ISC",
   "dependencies": {
     "styled-components": "^5.2.1",
@@ -24,10 +36,10 @@
     "react-dom": "16.x.x || 17.x.x"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.2.0-beta.13",
-    "@storybook/addon-essentials": "^6.2.0-beta.13",
-    "@storybook/addon-links": "^6.2.0-beta.13",
-    "@storybook/react": "^6.2.0-beta.13",
+    "@storybook/addon-actions": "^6.2.0-beta.14",
+    "@storybook/addon-essentials": "^6.2.0-beta.14",
+    "@storybook/addon-links": "^6.2.0-beta.14",
+    "@storybook/react": "^6.2.0-beta.14",
     "@types/enzyme": "^3.10.8",
     "@types/jest": "^26.0.20",
     "@types/react": "^17.0.3",

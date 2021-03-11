@@ -3,7 +3,8 @@
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src",
-    "tsBuildInfoFile": "./build/.tsbuildinfo"
+    "tsBuildInfoFile": "./.build/.tsbuildinfo"
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["**/*.stories.tsx", "**/*.spec.tsx"]
 }
