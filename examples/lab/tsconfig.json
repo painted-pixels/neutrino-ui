@@ -5,5 +5,5 @@
     "rootDir": ".",
     "tsBuildInfoFile": "./build/.tsbuildinfo"
   },
-  "include": ["**/*"]
+  "include": [".storybook/*.ts"]
 }

@@ -13,6 +13,7 @@ const ButtonComponent = styled.button`
   cursor: pointer;
   padding: 0.5rem 1rem;
 `
+ButtonComponent.displayName = 'Button'
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({ children }, ref) => {
   return (
