@@ -31,6 +31,8 @@
     "@testing-library/react": "^11.2.5",
     "@types/enzyme": "^3.10.8",
     "@types/jest": "^26.0.20",
+    "@types/lodash.get": "^4.4.6",
+    "@types/lodash.merge": "^4.6.6",
     "@types/react": "^17.0.3",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
     "@yarnpkg/pnpify": "^2.4.0",
