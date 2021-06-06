@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
+import defaultTheme, { DefaultThemeConfig, ThemeConfig } from './themes'
+
 import { ThemeProvider as SCThemeProvider } from 'styled-components';
 import merge from 'lodash.merge';
-import defaultTheme, { DefaultThemeConfig, ThemeConfig } from './themes'
 
 // merge the color mode with the base theme
 // to create a new theme object
 function getTheme<T = "light">(mode: T, customTheme?: ThemeConfig): ThemeConfig {
   const theme = customTheme ?? defaultTheme;
-  let colors = theme.colors;
+  let colors = theme.themeModes?.['light']?.colors;
   if(theme?.themeModes) {
-    colors = merge({}, theme?.themeModes?.[mode as unknown as string], theme.colors)
+    colors = merge({}, theme?.themeModes?.[mode as unknown as string], theme.themeModes?.['light']?.colors)
   }
   return merge({}, theme, {
     colors,
@@ -21,8 +22,8 @@ function getTheme<T = "light">(mode: T, customTheme?: ThemeConfig): ThemeConfig 
 // Set types (generics?)
 
 export interface ThemeProviderProps<ThemeObject = ThemeConfig> {
-  children: React.ReactNode;
-  theme: ThemeObject;
+  children: React.ReactChild;
+  theme?: ThemeObject;
 }
 
 function ThemeProvider<T extends ThemeConfig = DefaultThemeConfig>({ theme, children }: ThemeProviderProps<T>) {
@@ -30,9 +31,10 @@ function ThemeProvider<T extends ThemeConfig = DefaultThemeConfig>({ theme, chil
   // state for changing modes dynamically
   const [mode, _] = useState<ThemeModes>('light')
   const selectedTheme = getTheme<ThemeModes>(mode, theme)
-
+  console.log('hey', selectedTheme)
+  console.log('hey default', defaultTheme)
   return (
-    <SCThemeProvider theme={selectedTheme}>
+    <SCThemeProvider theme={defaultTheme}>
       { children }
     </SCThemeProvider>
   )

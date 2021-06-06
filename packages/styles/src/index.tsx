@@ -1,15 +1,5 @@
-import React from 'react'
+export { default as ThemeProvider } from './ThemeProvider';
+export * from './ThemeProvider';
 
-export interface ButtonProps {
-  
-}
-
-const Button = () => {
-  return (
-    <div>
-      Button
-    </div>
-  )
-}
-
-export default Button
+export { default as theme } from './themes';
+export * from './themes';

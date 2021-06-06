@@ -9,20 +9,21 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@babel/core": "^7.13.8",
-    "@storybook/addon-actions": "^6.2.0-beta.4",
-    "@storybook/addon-essentials": "^6.2.0-beta.4",
-    "@storybook/addon-links": "^6.2.0-beta.4",
-    "@storybook/react": "^6.2.0-beta.4",
+    "@babel/core": "^7.14.3",
+    "@neutrino-ui/styles": "0.0.1",
+    "@storybook/addon-actions": "^6.3.0-beta.12",
+    "@storybook/addon-essentials": "^6.3.0-beta.12",
+    "@storybook/addon-links": "^6.3.0-beta.12",
+    "@storybook/react": "^6.3.0-beta.12",
     "babel-loader": "^8.2.2",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-is": "^17.0.1"
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-is": "^17.0.2"
   },
   "devDependencies": {
-    "@types/react": "^17.0.2",
-    "core-js": "^3.9.1",
-    "regenerator-runtime": "^0.13.7",
-    "typescript": "^4.2.2"
+    "@types/react": "^17.0.9",
+    "core-js": "^3.14.0",
+    "regenerator-runtime": "^0.13.8",
+    "typescript": "^4.3.2"
   }
 }

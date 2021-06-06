@@ -1,10 +1,9 @@
 {
-  "extends": "../../tsconfig",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src",
-    "tsBuildInfoFile": "./.build/.tsbuildinfo"
+    "tsBuildInfoFile": "./build/.tsbuildinfo"
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["**/*.stories.tsx"]
+  "exclude": ["dist/**"]
 }

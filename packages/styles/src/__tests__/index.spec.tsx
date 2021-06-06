@@ -1,10 +1,14 @@
 import React from 'react'
+import {ThemeProvider} from '../';
 import { shallow } from 'enzyme';
-import Button from '../';
 
-describe('Button', () => {
+describe('ThemeProvider', () => {
   it('should pass', () => {
-    const wrapper = shallow(<Button />)
+    const wrapper = shallow(
+      <ThemeProvider>
+        <div>Test</div>
+      </ThemeProvider>
+    )
     expect(wrapper).toBeTruthy()
     expect(true).toBeTruthy();
   });
